@@ -14,7 +14,7 @@ import java.util.List;
 public class BookingService {
 
     @Inject
-    Booking.Repo bookingRepo;
+    BookingRepository bookingRepo;
 
     public Booking getBookingDetails(String bookingNumber, String name, String surname) {
         return bookingRepo

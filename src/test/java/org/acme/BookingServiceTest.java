@@ -48,7 +48,7 @@ public class BookingServiceTest {
     Customer.Repo customerRepo;
 
     @Inject
-    Booking.Repo bookingRepo;
+    BookingRepository bookingRepo;
 
     @Test
     public void shouldRemovePastBookings() {

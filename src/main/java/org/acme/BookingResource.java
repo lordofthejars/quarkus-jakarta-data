@@ -19,7 +19,7 @@ public class BookingResource {
     Customer.Repo customerRepo;
 
     @Inject
-    Booking.Repo bookingRepo;
+    BookingRepository bookingRepo;
 
     @Inject
     BookingService bookingService;

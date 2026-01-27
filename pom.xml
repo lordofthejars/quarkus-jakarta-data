@@ -103,7 +103,9 @@
                         <path>
                             <groupId>org.hibernate.orm</groupId>
                             <artifactId>hibernate-processor</artifactId>
+                            <!-- Note, no artifact version is required, it's managed by Quarkus.  -->
                         </path>
+                        <!-- other processors that may be required by your app -->
                     </annotationProcessorPaths>
                     <parameters>true</parameters>
                 </configuration>

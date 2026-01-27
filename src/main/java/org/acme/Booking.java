@@ -9,6 +9,7 @@ import jakarta.data.repository.Find;
 import jakarta.data.repository.OrderBy;
 import jakarta.data.repository.Query;
 import jakarta.data.repository.Repository;
+import jakarta.enterprise.context.ApplicationScoped;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.FetchType;
@@ -45,24 +46,4 @@ public class Booking {
     @JoinColumn(name = "customer_id", nullable = false)
     public Customer customer;
 
-    @Repository
-    public interface Repo extends CrudRepository<Booking, Long> {
-
-        @Find
-        Optional<Booking> findByBookingNumberAndCustomerNameAndCustomerSurname(
-                String bookingNumber,
-                @By("customer.name") String customerName,
-                @By("customer.surname") String customerSurname);
-
-        @Find
-        @OrderBy(Booking_.DATE_FROM)
-        List<Booking> findByCustomerNameAndCustomerSurname(@By("customer.name") String customerName,
-                                                           @By("customer.surname") String customerSurname);
-
-        @Find
-        List<Booking> find(Sort<Booking> sort);
-
-        @Query("DELETE FROM Booking WHERE " + Booking_.DATE_TO + " < ?1")
-        void deletePastBookings(LocalDate dateTo);
-    }
 }
